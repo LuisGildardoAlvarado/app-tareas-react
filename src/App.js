@@ -1,7 +1,6 @@
 import './App.css';
+import TasksList from './components/TasksList';
 import TDLogo from './components/TDLogo';
-// import Task from './components/Tasks';
-// import TaskForm from './components/TaskForm';
 
 function App() {
   return (
@@ -10,6 +9,7 @@ function App() {
 
       <div className="tasks-principal-list">
         <h1>Mis Tareas</h1>
+        <TasksList/>
       </div>
     </div>
   );
