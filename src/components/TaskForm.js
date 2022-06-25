@@ -8,7 +8,7 @@ function TaskForm(props) {
 
     const controlChange = e =>{
         setInput(e.target.value);
-    }
+    };
 
     const controlShipment = e =>{
         e.preventDefault();
@@ -16,10 +16,10 @@ function TaskForm(props) {
             id: uuidv4(),
             text: input,
             completed: false
-        }
+        };
 
         props.onSubmit(newTask);
-    }
+    };
 
     return(
         <form 
@@ -37,6 +37,6 @@ function TaskForm(props) {
             </button>
         </form>
     );
-}
+};
 
 export default TaskForm;

@@ -11,11 +11,25 @@ function TasksList() {
         if (task.text.trim()) {
             task.text = task.text.trim();
 
-            const updateTask = [task, ...tasks];
-            setTasks(updateTask);
+            const updateTasks = [task, ...tasks];
+            setTasks(updateTasks);
         }
     };
 
+    const deleteTask = id => {
+        const updateTasks = tasks.filter(task => task.id !== id);
+        setTasks(updateTasks)
+    };
+
+    const completedTask = id =>{
+        const updateTasks = tasks.map(task => {
+            if(task.id === id){
+                task.completed = !task.completed;
+            }
+            return task;
+        });
+        setTasks(updateTasks);
+    };
     return(
         <div>
             <TaskForm onSubmit={addTask}/>
@@ -27,12 +41,14 @@ function TasksList() {
                         id={task.id}
                         text={task.text}
                         completed={task.completed}
+                        completedTask={completedTask}
+                        deleteTask={deleteTask}
                         />
                     )
                 }
             </div>
         </div>
     );
-}
+};
 
 export default TasksList;
